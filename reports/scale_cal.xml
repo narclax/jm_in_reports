@@ -370,7 +370,7 @@
                         </div>
                         <div class="col-4" style="padding-left:10px;padding-right:10px;">
                             
-                            <div style="border:1px solid;height:200px;">
+                            <div style="border:1px solid;height:200px;padding-top:5px;">
                                 Notas Adicionales
                             </div>
                             <br/>
@@ -385,11 +385,41 @@
 
                         </div>
                         <div class="col-4">
-                            <div>
-                                |𝑬| + 𝑼𝒄𝒂𝒍 ≤ 𝑬𝑴𝑷Error + Incert. Cal.≤ Tolerancia
-                                
+                            <div class="row" style="padding-top:50px;">
+                                <div class="col-2 text-center">
+                                    <div style="border:2px solid #000;width:30px;height:30px;border-radius:5px;">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <img src="/jm_in_reports/static/src/r1.png"/>
+                                </div>
                             </div>
+                            <div class="row" style="padding-top:25px;">
+                                <div class="col-2 text-center">
+                                    <div style="border:2px solid #000;width:30px;height:30px;border-radius:5px;">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <img src="/jm_in_reports/static/src/r2.png"/>
+                                </div>
+                            </div>
+
+                            <div style="width:100%;border-radius:2px;border:1px solid #000;height:80px;margin-top:25px;">
+                                <span style="color:#c8c8c8;">Firma y aprobación del Cliente</span>
+                            </div><br/>
+                            <stron>Nota: </stron> Requiere firma en caso no tener acuerdo previo sobre (RMC) Requisitos Metodológicos del Cliente.
                         </div>
+
+
+
+                        
+                    </div>
+                    NOTAS:
+                    <div class="row" style="border-top:1px solid #000;padding-top:3px;">
+                        1- PL-02: Procedimiento Calibración Balanzas (versión vigente), RMC: Requisitos Metrológicos del Cliente, ESP. FAB.: Especificaciones Fabricante.<br/>
+                        2- Otros casos en donde el cliente debe firmar el formulario, a) Cambie su RMC al momento de realizar el servicio. b) Calibración inicia del equipo sin RMC en OS. 
                     </div>
                    
                 
