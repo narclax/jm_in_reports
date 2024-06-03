@@ -19,6 +19,12 @@
                           border-collapse: collapse;
                           vertical-align: middle;
                         }
+                        .rotate-text {
+                            transform: rotate(270deg); /* Rotate text 270 degrees */
+                            writing-mode: vertical-lr; /* Vertical text layout */
+                            white-space: nowrap; /* Prevent line break */
+                        }
+
                     </style>
                 
                     
@@ -167,46 +173,224 @@
                         <table class="table" width="100%">
                             <tbody>
                               <tr>
-                                <td colspan="2">ID Patrón utilizado</td>
-                                <td>C</td>
-                                <td>MAS-003</td>
-                                <td colspan="4">Condición Ambiental, ID Patrón TH:</td>
-                                <td rowspan="2">No. SC generado</td>
+                                <td colspan="4">Verificación Error de indicación (Antes de ajuste)</td>
+                                <td rowspan="5" class="rotate-text">Requiere ajuste?</td>
+                                <td rowspan="3">Medición</td>
+                                <td colspan="5">Prueba de Linealidad y Repetibilidad</td>
                               </tr>
                               <tr>
-                                <td>A</td>
-                                <td>MAS-001</td>
-                                <td>D</td>
-                                <td>MAS-004</td>
-                                <td colspan="2">Inicio</td>
-                                <td colspan="2">Final</td>
+                                <td rowspan="2">ID Patrón</td>
+                                <td rowspan="2">Med.</td>
+                                <td rowspan="2">Carga</td>
+                                <td rowspan="2">Indicación</td>
+                                <td colspan="5">Error de indicación</td>
                               </tr>
                               <tr>
-                                <td>B</td>
-                                <td>MAS-002</td>
-                                <td>E</td>
-                                <td>MAS-005</td>
-                                <td>Temperatura:</td>
+                                <td>M-1</td>
+                                <td>M-2</td>
+                                <td>M-3</td>
+                                <td>M-4</td>
+                                <td>M-5</td>
+                              </tr>
+                              <tr>
                                 <td></td>
-                                <td>Temperatura:</td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>2</td>
+                                <td></td>
+                                <td></td>
+                                <td>2</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td rowspan="2">SI</td>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>4</td>
+                                <td></td>
+                                <td></td>
+                                <td>4</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>5</td>
+                                <td></td>
                                 <td></td>
                                 <td rowspan="2"></td>
+                                <td>5</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                               </tr>
                               <tr>
-                                <td colspan="2">Tiempo Estabilización</td>
-                                <td colspan="2"></td>
-                                <td>Humedad (%HR)</td>
                                 <td></td>
-                                <td>Humedad (%HR)</td>
+                                <td>6</td>
+                                <td></td>
+                                <td></td>
+                                <td>6</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>7</td>
+                                <td></td>
+                                <td></td>
+                                <td rowspan="2">NO</td>
+                                <td>7</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>8</td>
+                                <td></td>
+                                <td></td>
+                                <td>8</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>9</td>
+                                <td></td>
+                                <td></td>
+                                <td rowspan="2"></td>
+                                <td>9</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>10</td>
+                                <td></td>
+                                <td></td>
+                                <td>10</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                               </tr>
                             </tbody>
                         </table>
-
                         
                     </div>    
-                    
+                    <div class="row">
+                        <div class="col-4">
+                            <table class="table pull-left">
+                                <tbody>
+                                  <tr>
+                                    <td colspan="2">Prueba de Excentricidad</td>
+                                  </tr>
+                                  <tr>
+                                    <td>ID Patrón</td>
+                                    <td>.</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Carga ( )</td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Repetición</td>
+                                    <td>Indicación</td>
+                                  </tr>
+                                  <tr>
+                                    <td>1</td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>2</td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>3</td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>4</td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>5</td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-center">
+                                <img src="/jm_in_reports/static/src/left.png"/>
+                            </div>
 
+
+
+                        </div>
+                        <div class="col-4" style="padding-left:10px;padding-right:10px;">
+                            
+                            <div style="border:1px solid;height:200px;">
+                                Notas Adicionales
+                            </div>
+                            <br/>
+                            <br/>
+                            <span class="text-center">Realizado por:</span>
+                            <div style="border:1px solid;height:50px;">
+                                
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="col-4">
+                            <div>
+                                |𝑬| + 𝑼𝒄𝒂𝒍 ≤ 𝑬𝑴𝑷Error + Incert. Cal.≤ Tolerancia
+                                
+                            </div>
+                        </div>
+                    </div>
                    
                 
                 </t>
