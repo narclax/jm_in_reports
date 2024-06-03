@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="paperformat_custom_in" model="report.paperformat">
+            <field name="name">In Calibration</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">25</field>
+            <field name="dpi">90</field>
+        </record>
+
+        
+
+
+        <report
+            id="account.scale_cal"
+            model="account.move"
+            string="Calibración de Balanza"
+            report_type="qweb-pdf"
+            name="jm_in_reports.report_scale_cal"
+            file="jm_in_reports.report_scale_cal"
+            attachment="(object.state == 'posted') and ((object.name or 'CAL').replace('/','_')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+            paperformat="jm_in_reports.paperformat_custom_in"
+            groups="account.group_account_invoice"
+        />
+        <!--
+        <report
+            id="sale.hesed_account_quotation_normal"
+            model="sale.order"
+            string="Cotizacion - Pedido"
+            report_type="qweb-pdf"
+            name="jm_hesed_features.report_custom_quotation"
+            file="jm_hesed_features.report_custom_quotation"
+            attachment="(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+            paperformat="jm_hesed_features.paperformat_custom_hesed"
+            groups="account.group_account_invoice"
+        />
+        -->
+
+        
+    </data>
+</odoo>

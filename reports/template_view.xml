@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Custom header / footer format views for reports -->
+        <template id="in_custom_external_layout">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+                <t t-if="not company">
+                    <!-- Multicompany -->
+                    <t t-if="company_id">
+                        <t t-set="company" t-value="company_id"/>
+                    </t>
+                    <t t-elif="o and 'company_id' in o">
+                        <t t-set="company" t-value="o.company_id.sudo()"/>
+                    </t>
+                    <t t-else="else">
+                        <t t-set="company" t-value="res_company"/>
+                    </t>
+                </t>
+                <t t-call="jm_in_reports.in_custom_external_layout_header_footer"><t t-raw="0"/></t>
+        </template>
+        <template id="in_custom_external_layout_header_footer">
+            <div t-attf-class="o_company_#{company.id}_layout header" t-att-style="report_header_style">
+                <style>
+                    * {
+                     font-family: arial;
+                     font-size:12px!important;
+                    }
+                    table, th, td {
+                      border: 1px solid black;
+                      border-collapse: collapse;
+                      vertical-align: middle;
+                    }
+                </style>
+                <table width="100%" class="table">
+                  <tr>
+                    <td rowspan="4" width="10%" class="text-center">
+                        <img t-if="company.logo" style="margin:10px;width:70px;" t-att-src="image_data_uri(company.logo)" class="" alt="Logo"/>
+                    </td>
+                    <td rowspan="3" width="40%" class="text-center">Formulario de Calibración de Balanza</td>
+                    <td class="text-right" width="25%" style="text-align:right;">Código</td>
+                    <td class="text-left" width="25%" style="text-align:left;">FB-01</td>
+                  </tr>
+                  <tr>
+                    <td class="text-right" style="text-align:right;">Revisión</td>
+                    <td class="text-left" style="text-align:left;">5</td>
+                  </tr>
+                  <tr>
+                    <td class="text-right" style="text-align:right;">Procedimiento de Origen</td>
+                    <td class="text-left" style="text-align:left;">PL-02</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">Nombre del Formulario</td>
+                    <td class="text-right" style="text-align:right;">Aprobación</td>
+                    <td class="text-left" style="text-align:left;">08/11/2021</td>
+                  </tr>
+                </table>
+                <!--
+                <div class="o_background_header">
+                <div class="float-right">
+                    <h3 class="mt0 text-right" t-field="company.report_header"/>
+                </div>
+                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" class="float-left" alt="Logo"/>
+                <div class="float-left company_address">
+                    <div>
+                        <strong t-field="company.partner_id.name"/>
+                    </div>
+                    <span t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
+                </div>
+                <div class="clearfix mb8"/>
+                </div>
+                -->
+            </div>
+
+            <div t-attf-class="o_company_#{company.id}_layout article o_report_layout_background" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <!--
+                <t t-call="web.address_layout"/>
+                -->
+                <t t-raw="0"/>
+            </div>
+
+            <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer">
+                <!--
+                <div class="text-center">
+                    <ul class="list-inline">
+                        <li t-if="company.phone" class="list-inline-item"><i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/> <span class="o_force_ltr" t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item"><i class="fa fa-at" role="img" aria-label="Email" title="Email"/> <span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item"><i class="fa fa-globe" role="img" aria-label="Website" title="Website"/> <span t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item"><i class="fa fa-building-o" role="img" aria-label="Fiscal number"/><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+                    <div t-field="company.report_footer"/>
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page:
+                        <span class="page"/>
+                        of
+                        <span class="topage"/>
+                    </div>
+                </div>
+                -->
+            </div>
+        </template>
+    </data>
+</odoo>

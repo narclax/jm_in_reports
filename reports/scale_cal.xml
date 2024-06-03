@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="scale_cal">
+            
+            <t t-call="web.html_container">    
+        
+                <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
+                <t t-set="company" t-value="doc.partner_id.company_id"/>
+                <t t-call="jm_in_reports.in_custom_external_layout">
+
+                    <style>
+                        * {
+                         font-family: arial;
+                         font-size:12px!important;
+                        }
+                        table, th, td {
+                          border: 1px solid black;
+                          border-collapse: collapse;
+                          vertical-align: middle;
+                        }
+                    </style>
+                
+                    
+                    <t t-set="o" t-value="doc.with_context(lang=lang)"/>
+                    
+                    <div class="page">
+                        <table width="100%" class="table">
+                            <tbody>
+                              <tr>
+                                <td colspan="2">Información del servicio</td>
+                                <td>Orden Servicio:</td>
+                                <td></td>
+                              </tr>
+                                
+                            
+                              <tr>
+                                <td>Cliente:</td>
+                                <td></td>
+                                <td>Fecha:</td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Contacto</td>
+                                <td></td>
+                                <td>Técnico</td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                        </table>
+
+
+
+                        <table class="table" width="100%">
+                            <tbody>
+                          <tr>
+                            <td colspan="2">Datos de la Balanza</td>
+                            <td rowspan="2">Frecuencia de Calibración</td>
+                            <td rowspan="2"></td>
+                            <td rowspan="2">Unidad de medida</td>
+                            <td colspan="2" rowspan="2"></td>
+                          </tr>
+                          <tr>
+                            <td>ID del Equipo:</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Marca:</td>
+                            <td></td>
+                            <td>Resolución escala</td>
+                            <td rowspan="2">Error Máximo Permitido</td>
+                            <td colspan="3">Puntos de Calibación</td>
+                          </tr>
+                          <tr>
+                            <td>Modelo:</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td colspan="2" rowspan="2"></td>
+                          </tr>
+                          <tr>
+                            <td>Serial:</td>
+                            <td></td>
+                            <td>Carga Máxima</td>
+                            <td>RMC:</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Clase precisión</td>
+                            <td></td>
+                            <td></td>
+                            <td>OIML:</td>
+                            <td></td>
+                            <td colspan="2">Definido Por:</td>
+                          </tr>
+                          <tr>
+                            <td>Ubicación</td>
+                            <td></td>
+                            <td>Carga Mínima</td>
+                            <td>ESP. FRB.:</td>
+                            <td></td>
+                            <td>RMC Usuario:</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Condición del Instrumento</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Otros</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td colspan="7"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="7">Notas:</td>
+                          </tr>
+                        </tbody>
+                        </table>
+
+
+
+                        <table class="table" width="100%">
+                            <tbody>
+                              <tr>
+                                <td colspan="2">ID Patrón utilizado</td>
+                                <td>C</td>
+                                <td>MAS-003</td>
+                                <td colspan="4">Condición Ambiental, ID Patrón TH:</td>
+                                <td rowspan="2">No. SC generado</td>
+                              </tr>
+                              <tr>
+                                <td>A</td>
+                                <td>MAS-001</td>
+                                <td>D</td>
+                                <td>MAS-004</td>
+                                <td colspan="2">Inicio</td>
+                                <td colspan="2">Final</td>
+                              </tr>
+                              <tr>
+                                <td>B</td>
+                                <td>MAS-002</td>
+                                <td>E</td>
+                                <td>MAS-005</td>
+                                <td>Temperatura:</td>
+                                <td></td>
+                                <td>Temperatura:</td>
+                                <td></td>
+                                <td rowspan="2"></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2">Tiempo Estabilización</td>
+                                <td colspan="2"></td>
+                                <td>Humedad (%HR)</td>
+                                <td></td>
+                                <td>Humedad (%HR)</td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+                        <table class="table" width="100%">
+                            <tbody>
+                              <tr>
+                                <td colspan="2">ID Patrón utilizado</td>
+                                <td>C</td>
+                                <td>MAS-003</td>
+                                <td colspan="4">Condición Ambiental, ID Patrón TH:</td>
+                                <td rowspan="2">No. SC generado</td>
+                              </tr>
+                              <tr>
+                                <td>A</td>
+                                <td>MAS-001</td>
+                                <td>D</td>
+                                <td>MAS-004</td>
+                                <td colspan="2">Inicio</td>
+                                <td colspan="2">Final</td>
+                              </tr>
+                              <tr>
+                                <td>B</td>
+                                <td>MAS-002</td>
+                                <td>E</td>
+                                <td>MAS-005</td>
+                                <td>Temperatura:</td>
+                                <td></td>
+                                <td>Temperatura:</td>
+                                <td></td>
+                                <td rowspan="2"></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2">Tiempo Estabilización</td>
+                                <td colspan="2"></td>
+                                <td>Humedad (%HR)</td>
+                                <td></td>
+                                <td>Humedad (%HR)</td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                        </table>
+
+                        
+                    </div>    
+                    
+
+                   
+                
+                </t>
+            
+            </t>
+        </template>
+
+        <template id="report_scale_cal">
+            
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="jm_in_reports.scale_cal" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
