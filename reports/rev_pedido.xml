@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="rev_pedido">
+            
+            <t t-call="web.html_container">    
+        
+                <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
+                <t t-set="company" t-value="doc.partner_id.company_id"/>
+                <t t-call="jm_in_reports.in_custom_external_layout">
+
+                    <style>
+                        * {
+                         font-family: arial;
+                         font-size:12px!important;
+                        }
+                        table, th, td {
+                          border: 1px solid black;
+                          border-collapse: collapse;
+                          vertical-align: middle;
+                        }
+                        .rotate-text {
+                            transform: rotate(270deg); /* Rotate text 270 degrees */
+                            writing-mode: vertical-lr; /* Vertical text layout */
+                            white-space: nowrap; /* Prevent line break */
+                        }
+
+                    </style>
+                
+                    
+                    <t t-set="o" t-value="doc.with_context(lang=lang)"/>
+                        <t t-if="not company">
+                        <!-- Multicompany -->
+                        <t t-if="company_id">
+                            <t t-set="company" t-value="company_id"/>
+                        </t>
+                        <t t-elif="o and 'company_id' in o">
+                            <t t-set="company" t-value="o.company_id.sudo()"/>
+                        </t>
+                        <t t-else="else">
+                            <t t-set="company" t-value="res_company"/>
+                        </t>
+                    </t>
+                    
+                    <div class="page">
+                        <div class="row" style="padding-top:35px;">
+                            <div class="col-4">
+                                
+                                
+
+
+                                <table class="table" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td rowspan="5" style="text-align:center;"><img t-if="company.logo" style="margin:10px;width:70px;" t-att-src="image_data_uri(company.logo)" class="" alt="Logo"/></td>
+                                        <td class="text-right;" style="text-align:right;">Código</td>
+                                        <td>P10-F1</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="text-right" style="text-align:right;">Revisión</td>
+                                        <td>3</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="text-right" style="text-align:right;">Procedimiento de origen</td>
+                                        <td>P10</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="text-right" style="text-align:right;">Aprobación</td>
+                                        <td>21/10/2021</td>
+                                      </tr>
+                                      <tr>
+                                        <td  class="text-center" colspan="2">Formulario de revisión de pedido</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                            <div class="col-8">
+                                
+                                <table class="table" style="width:95%;margin-left:25px;">
+                                    <tbody>
+                                      <tr>
+                                        <td colspan="7" style="text-align:center;">DATOS DEL CLIENTE</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="width:5%;border-right: none;!important"></td>
+                                        <td style="width:15%;text-align:right;border-right:0;">Cliente:</td>
+                                        <td colspan="4"></td>
+                                        <td></td>
+                                      </tr>
+                                      <tr>
+                                        <td style="border-right: none;"></td>
+                                        <td style="width:15%;text-align:right;">Contacto</td>
+                                        <td colspan="3"></td>
+                                        <td style="width:20%;text-align:right;">Orden servicio interna:</td>
+                                        <td></td>
+                                      </tr>
+                                      <tr>
+                                        <td style="border-right: none;"></td>
+                                        <td style="text-align:right;">Cargo</td>
+                                        <td colspan="3"></td>
+                                        <td style="text-align:right;">Técnico responsable</td>
+                                        <td></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="7" style="height:10px;">&#032;</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>                      
+                        
+
+                        <div class="row">
+                            <div class="col-12" style="text-align:center:margin-top:25px;">
+                                <p><br/>Resumen del levantamiento y de los datos suministrado por el cliente para los servicios de calibración a realizar, los mismos deben ser revisados y aprobados en este formulario por el cliente antes de iniciar las calibraciones.
+                                Las declaración de conformidad (Pass) o no conformidad (Fail) dependerá de si los resultados de la prueba cumplen con los requisitos de tolerancia previamente acordados sin afectar la incertidumbre de medida.</p>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top:15px;">
+                            <table class="table" width="100%" style="text-align:center;">
+                                <tbody>
+                                  <tr>
+                                    <td style="text-align:center;font-weight:bold;">#</td>
+                                    <td style="text-align:center;font-weight:bold;">Marca</td>
+                                    <td style="text-align:center;font-weight:bold;">Modelo</td>
+                                    <td style="text-align:center;font-weight:bold;">Serie</td>
+                                    <td style="text-align:center;font-weight:bold;">Equipo</td>
+                                    <td style="text-align:center;font-weight:bold;">Unidad</td>
+                                    <td style="text-align:center;font-weight:bold;">Rango de Calibración</td>
+                                    <td style="text-align:center;font-weight:bold;">Resolución</td>
+                                    <td style="text-align:center;font-weight:bold;">Tolerancia (EMP)</td>
+                                    <td style="text-align:center;font-weight:bold;">Puntos de Calibración</td>
+                                    <td style="text-align:center;font-weight:bold;">Frecuencia (Si aplica).</td>
+                                    <td style="text-align:center;font-weight:bold;">Número Certificado</td>
+                                    <td style="text-align:center;font-weight:bold;">Técnico</td>
+                                    <td style="text-align:center;font-weight:bold;">Ub</td>
+                                  </tr>
+                                  <tr>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>3</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>4</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>5</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>6</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>7</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>8</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>9</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>10</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>11</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>12</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>13</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    
+
+
+                        <div class="row" style="padding-top:15px;">
+                            
+                            <div class="col-2">
+                                <table class="table" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td style="text-align:center;">No.</td>
+                                        <td style="text-align:center;">Ubicación del equipo</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="text-align:center;">1</td>
+                                        <td style="text-align:center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <td style="text-align:center;">2</td>
+                                        <td style="text-align:center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <td style="text-align:center;">3</td>
+                                        <td style="text-align:center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <td style="text-align:center;">4</td>
+                                        <td style="text-align:center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <td style="text-align:center;">5</td>
+                                        <td style="text-align:center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <td style="text-align:center;">6</td>
+                                        <td style="text-align:center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <td style="text-align:center;">7</td>
+                                        <td style="text-align:center;"></td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        
+                            <div class="col-4">
+                                <div style="border:1px solid#000;height:197px;margin-left:15px;margin-right:15px;">
+                                    Comentarios y requerimientos especiales del cliente:
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-6">
+                                Para más información declaración de conformidad, términos y condiciones<br/>
+                                de servicios, favor revisar nuestra página en web www.inmetrology.com<br/>
+                                <div class="row">
+                                    <div class="col-2" style="padding-top:40px;">
+                                        <table class="table" width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td colspan="2" style="text-align:center;">Requisitos<br/> EMP</td>
+                                              </tr>
+                                              <tr>
+                                                <td></td>
+                                                <td>RMC</td>
+                                              </tr>
+                                              <tr>
+                                                <td></td>
+                                                <td>Fabric.</td>
+                                              </tr>
+                                              <tr>
+                                                <td></td>
+                                                <td>Oilm</td>
+                                              </tr>
+                                              <tr>
+                                                <td></td>
+                                                <td>Otros</td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-4" style="margin-left:10px;">
+                                        <div class="row" style="padding-top:50px;">
+                                            <div class="col-2 text-center">
+                                                <div style="border:2px solid #000;width:30px;height:30px;border-radius:5px;">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-10">
+                                                <img src="/jm_in_reports/static/src/r1.png"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top:25px;">
+                                            <div class="col-2 text-center">
+                                                <div style="border:2px solid #000;width:30px;height:30px;border-radius:5px;">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-10">
+                                                <img src="/jm_in_reports/static/src/r2.png"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6" style="padding-top:50px;">
+                                        <img src="/jm_in_reports/static/src/firma.jpg" width="100%"/>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            
+                            <p style="font-size:10px;text-align:center;">InMetrology S.R.L. (Instrumentación y Metrología), Av,Nuñez de Caceres Res. Las Lauras I, Santo Domingo, República Dominicana, Tel. 809-807-3097, email: info@inmetrology.comwww.inmetrology.com</p>
+
+                        </div>
+
+
+
+                    </div>
+                   
+                
+                </t>
+            
+            </t>
+        </template>
+
+        <template id="report_rev_pedido">
+            
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="jm_in_reports.rev_pedido" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

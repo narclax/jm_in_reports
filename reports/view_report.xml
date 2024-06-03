@@ -15,6 +15,20 @@
             <field name="dpi">90</field>
         </record>
 
+        <record id="paperformat_custom_rev" model="report.paperformat">
+            <field name="name">Revision Pedido</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">25</field>
+            <field name="dpi">90</field>
+        </record>
+
         
 
 
@@ -28,6 +42,20 @@
             attachment="(object.state == 'posted') and ((object.name or 'CAL').replace('/','_')+'.pdf')"
             print_report_name="(object._get_report_base_filename())"
             paperformat="jm_in_reports.paperformat_custom_in"
+            groups="account.group_account_invoice"
+        />
+
+
+        <report
+            id="account.rev_pedido"
+            model="account.move"
+            string="Revisión de Pedido"
+            report_type="qweb-pdf"
+            name="jm_in_reports.report_rev_pedido"
+            file="jm_in_reports.report_rev_pedido"
+            attachment="(object.state == 'posted') and ((object.name or 'CAL').replace('/','_')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+            paperformat="jm_in_reports.paperformat_custom_rev"
             groups="account.group_account_invoice"
         />
         <!--

@@ -26,7 +26,7 @@
     'data': [
         'reports/template_view.xml',
         'reports/scale_cal.xml',
-        #'reports/quotation_report.xml',
+        'reports/rev_pedido.xml',
         'reports/view_report.xml'
     ],
     'application': True,
